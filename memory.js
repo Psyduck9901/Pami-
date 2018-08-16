@@ -1,5 +1,4 @@
 var cards = ['ciri.png', 'geralt.png', 'jaskier.png', 'jaskier.png', 'iorweth.png', 'triss.png', 'geralt.png', 'yen.png', 'ciri.png', 'triss.png', 'yen.png', 'iorweth.png'];
-//console.log(cards);
 var i = cards.length, j , shuffled;
 
 //losowanie kart
@@ -10,20 +9,10 @@ while (--i > 0){
     cards [i] = shuffled;
 }
 
-var c0 = document.getElementById('c0');
-var c1 = document.getElementById('c1');
-var c2 = document.getElementById('c2');
-var c3 = document.getElementById('c3');
-
-var c4 = document.getElementById('c4');
-var c5 = document.getElementById('c5');
-var c6 = document.getElementById('c6');
-var c7 = document.getElementById('c7');
-
-var c8 = document.getElementById('c8');
-var c9 = document.getElementById('c9');
-var c10 = document.getElementById('c10');
-var c11 = document.getElementById('c11');
+var nr = 11;
+while (--nr > 0){
+    $('#c'+nr);
+}
 
 var oneVisible = false;
 var turnCounter = 0;
