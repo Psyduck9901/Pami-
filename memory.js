@@ -19,24 +19,14 @@ var turnCounter = 0;
 var visible_nr;
 var lock = false;
 var pairsLeft = 6;
-
-c0.addEventListener("click", function() {revealCard(0); });
-c1.addEventListener("click", function() {revealCard(1); });
-c2.addEventListener("click", function() {revealCard(2); });
-c3.addEventListener("click", function() {revealCard(3); });
-
-c4.addEventListener("click", function() {revealCard(4); });
-c5.addEventListener("click", function() {revealCard(5); });
-c6.addEventListener("click", function() {revealCard(6); });
-c7.addEventListener("click", function() {revealCard(7); });
-
-c8.addEventListener("click", function() {revealCard(8); });
-c9.addEventListener("click", function() {revealCard(9); });
-c10.addEventListener("click", function() {revealCard(10); });
-c11.addEventListener("click", function() {revealCard(11); });
+var numer = 0;
+//Pętla do obsługi kliknięcia
+cards.forEach(function(_,index){
+    $('#c'+index).on('click', function() {revealCard(index); });
+})
 
 function revealCard(number){
-     //alert(number);
+    //alert(number);
     var obraz = "url(img/" + cards[number] + ")";
     var opacityValue = $('#c'+number).css('opacity');
 
@@ -44,10 +34,7 @@ function revealCard(number){
 
         lock=true;
 
-        $('#c' +number).css('background-image', obraz);
-        $('#c' +number).toggleClass('card');
-        $('#c' +number).toggleClass('cardA');
-
+        $('#c' +number).css('background-image', obraz).toggleClass('card').toggleClass('cardA');
         if (oneVisible == false){
             //first-card
             oneVisible = true;
