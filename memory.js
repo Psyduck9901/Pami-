@@ -8,8 +8,13 @@ var oneVisible = false;
 var lock = false;
 
 var turnCounter = 0;
-var pairsLeft = 6;
-var nr = 11;
+var pairsLeft = cards.length*0.5;
+console.log(pairsLeft);
+
+$('.button').on('click',function(){
+  var dupa = $(this).attr('difficult');
+  console.log(dupa);
+});
 
 var i = cards.length-1;
 //losowanie kart
@@ -19,9 +24,9 @@ while (--i > 0){
     cards[j] = cards[i];
     cards [i] = shuffled;
 }
-
-while (--nr > 0){
-    $('#c'+nr);
+//Przypisywanie div'ów do zmiennych
+while (--i > 0){
+    $('#c'+i);
 }
 //Tworzenie divów dla tablicy
 cards.forEach(function(_,index){
