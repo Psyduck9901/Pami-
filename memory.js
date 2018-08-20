@@ -1,6 +1,17 @@
+var easy = ['ciri.png','ciri.png','geralt.png','geralt.png','jaskier.png','jaskier.png','triss.png','triss.png'];
 var cards = ['ciri.png', 'geralt.png', 'jaskier.png', 'jaskier.png', 'iorweth.png', 'triss.png', 'geralt.png', 'yen.png', 'ciri.png', 'triss.png', 'yen.png', 'iorweth.png'];
-var i = cards.length, j , shuffled;
+var hard = ['ciri.png', 'geralt.png', 'jaskier.png', 'jaskier.png', 'iorweth.png', 'triss.png', 'geralt.png', 'yen.png', 'ciri.png', 'triss.png', 'yen.png', 'iorweth.png', 'radowid.png','radowid.png','draig.png','draig.png'];
 
+var visible_nr, j , shuffled;
+
+var oneVisible = false;
+var lock = false;
+
+var turnCounter = 0;
+var pairsLeft = 6;
+var nr = 11;
+
+var i = cards.length-1;
 //losowanie kart
 while (--i > 0){
     j = Math.floor(Math.random() * i);
@@ -9,17 +20,14 @@ while (--i > 0){
     cards [i] = shuffled;
 }
 
-var nr = 11;
 while (--nr > 0){
     $('#c'+nr);
 }
+//Tworzenie divów dla tablicy
+cards.forEach(function(_,index){
+  $('<div class="card" id=c'+index+'/>', {}).appendTo('article');
+});
 
-var oneVisible = false;
-var turnCounter = 0;
-var visible_nr;
-var lock = false;
-var pairsLeft = 6;
-var numer = 0;
 //Pętla do obsługi kliknięcia
 cards.forEach(function(_,index){
     $('#c'+index).on('click', function() {revealCard(index); });
@@ -42,7 +50,6 @@ function revealCard(number){
             lock = false;
         }else{
             //second-card
-
             if(cards[visible_nr] == cards[number]){
                 //alert("para");
                 setTimeout(function(){hide2Cards(number, visible_nr)}, 750);
@@ -51,7 +58,7 @@ function revealCard(number){
                  setTimeout(function(){restore2Cards(number, visible_nr)}, 1000);
             }
             turnCounter++;
-            $('.score').html('Turn counter:' +turnCounter);
+            $('.score').html('Turn counter: ' +turnCounter);
             oneVisible=false;
         }
     }
@@ -60,22 +67,18 @@ function revealCard(number){
 function hide2Cards(nr1, nr2){
     $('#c'+nr1).css('opacity','0');
     $('#c'+nr2).css('opacity','0');
-
     pairsLeft--;
-    if(pairsLeft==0){
-        $('.board').html('<h1>You win! Done in '+turnCounter+' turns</h1>');
-    }
-
+        if(pairsLeft==0){
+            $('.board').html('<h1>You win! Done in '+turnCounter+' turns</h1><br/><button onclick="reloadPage()">Play again!</button>');
+        }
     lock = false;
 }
+function reloadPage(){
+  location.reload();
+}
+
 function restore2Cards(nr1,nr2){
-    $('#c' +nr1).css('background-image', 'url(img/karta.png)');
-    $('#c' +nr1).toggleClass('cardA');
-    $('#c' +nr1).toggleClass('card');
-
-    $('#c' +nr2).css('background-image', 'url(img/karta.png)');
-    $('#c' +nr2).toggleClass('cardA');
-    $('#c' +nr2).toggleClass('card');
-
+    $('#c' +nr1).css('background-image', 'url(img/karta.png)').toggleClass('cardA').toggleClass('card');
+    $('#c' +nr2).css('background-image', 'url(img/karta.png)').toggleClass('cardA').toggleClass('card');
     lock = false;
 }
