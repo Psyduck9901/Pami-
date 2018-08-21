@@ -26,16 +26,15 @@
         <p> Inspired by <a href="https://www.playgwent.com/pl" traget="_blank">Gwent - The Witcher card game</a></p>
     </header>
 	   <main>
+			 <div class="start">
+				<button class="button" data-panelid="easy">Easy</button>
+				<button class="button" data-panelid="medium">Medium</button>
+				<button class="button" data-panelid="hard">Hard</button>
+			</div>
            <article>
-						 <div class="start">
-						 	<button class="button" id="btn1">Easy</button>
-	 						<button class="button" id="btn2">Medium</button>
-	 						<button class="button" id="btn3">Hard</button>
-	 						<button class="button" id="btn4">HaF</button>
-						</div>
             <div class="board"></div>
+						<div class="score">Turn counter: 0</div>
            </article>
-					   <div class="score">Turn counter: 0</div>
         </main>
     <script src="jquery.js"></script>
 	<script src="memory.js"></script>
