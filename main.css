@@ -21,6 +21,25 @@ h1
     margin-top: 20px;
     margin-bottom: 0px;
 }
+button
+{
+	padding-left: 20px;
+	margin-top: 20px;
+	background-color: #26282E;
+	font-family: 'Lobster', sans-serif;
+	font-size: 60px;
+	border: none;
+	color:#209781;
+}
+button:hover
+{
+	cursor: pointer;
+	color: #E9B64A;
+}
+button:last-child
+{
+	color:#af111c;
+}
 p
 {
     text-align: center;
@@ -28,7 +47,7 @@ p
     margin-bottom: 25px;
     letter-spacing: 2px;
 }
-.board
+article
 {
     width: 600px;
     margin-left: auto;
@@ -50,9 +69,9 @@ p
 }
 .card
 {
+	display: inline-block;
     width: 125px;
     height: 125px;
-    display: inline-block;
     margin:3px;
     background-image: url(img/karta.png);
     border: 4px solid #51c8b2;
@@ -69,6 +88,17 @@ p
 
 .score
 {
-    margin-top: 5px;
+    margin-top: 15px;
     letter-spacing: 2px;
+		text-align: center;
+			display: none;
+			position: relative;
+			margin-bottom: 20px;
+}
+.start
+{
+	margin-top:50px;
+	text-align: center;
+	margin-left: auto;
+	margin-right: auto;
 }
